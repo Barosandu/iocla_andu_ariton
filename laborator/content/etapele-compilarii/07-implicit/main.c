@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include <stdio.h>
+//#include "double.c"
+
+unsigned long long compute_double(unsigned long long);
 
 int main() {
 	unsigned long long val = 0xFFFFFFFF;

@@ -5,8 +5,10 @@ int main(void)
 	PyObject *pModuleName, *pModule;
 	PyObject *pFunc, *pythonArgument;
 	PyObject *pValue;
+	PyObject *nValue;
 
 	char *msg = "Hello World!";
+	char *needle = "llo";
 
 	setenv("PYTHONPATH", "./python_modules", 1);
 
@@ -20,7 +22,7 @@ int main(void)
 	pModule = PyImport_Import(pModuleName);
 
 	if (pModule != NULL) {
-		pythonArgument = PyTuple_New(1);
+		pythonArgument = PyTuple_New(2);
 		if (pythonArgument == NULL) {
 			fprintf(stderr, "pythonArgument is null.\n");
 			return 0;
@@ -32,12 +34,15 @@ int main(void)
 			return 0;
 		}
 
+		nValue = PyUnicode_DecodeFSDefault(needle);
+
 		if (PyTuple_SetItem(pythonArgument, 0, pValue) < 0) {
 			fprintf(stderr, "PyTuple_SetItem failed.\n");
 			return 0;
 		}
+		PyTuple_SetItem(pythonArgument, 1, nValue);
 
-		pFunc = PyObject_GetAttrString(pModule, "say");
+		pFunc = PyObject_GetAttrString(pModule, "subsir");
 		if (pFunc == NULL) {
 			fprintf(stderr, "pFunc is null.\n");
 			return 0;

@@ -1,5 +1,5 @@
 CFLAGS = -Wall -g
-PYTHON = python3.9
+PYTHON = python3.10
 
 .DEFAULT_GOAL: all
 
