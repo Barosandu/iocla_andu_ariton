@@ -2,6 +2,7 @@
 
 section .data
     myString: db "Hello, World!", 0
+    goodbai: db "Goodbye, World!", 0
 
 section .text
     global main
@@ -19,5 +20,8 @@ print:
     PRINTF32 `%s\n\x0`, myString
                                     ; TODO2.2: afisati "Hello, World!" de N ori
                                     ; TODO2.1: afisati "Goodbye, World!"
-
+    dec ecx
+    cmp ecx, 0
+    jne print
+    PRINTF32 `%s\n\x0`, goodbai
     ret

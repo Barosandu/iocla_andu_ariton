@@ -10,6 +10,7 @@ main:
     test al, al
     ;TODO: activati CF si OF
 
+    cmp al, al
     jz cf_of_on
     jmp end
 
