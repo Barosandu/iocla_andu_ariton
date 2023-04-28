@@ -38,6 +38,17 @@ main:
     ; birth_year is 1993
     ; age is 22
     ; group is '323CA'
+    xor eax, eax
+    mov eax, 1993
+    mov word [sample_student + birth_year], ax
+
+    xor eax, eax
+    mov eax, 22
+    mov byte [sample_student + age], al
+
+    xor eax, eax
+    mov eax, '323CA'
+    mov dword [sample_student + group], eax
 
     lea eax, [sample_student + name]
     push eax

@@ -30,9 +30,15 @@ main:
     ; print all three values (int_x, char_y, string_s) from simple_obj
     ; Hint: use "lea reg, [base + offset]" to save the result of
     ; "base + offset" into register "reg"
+    lea eax, dword [sample_obj + int_x]
+    PRINTF32 `%d\n\x0`, dword [eax]
+
 
     ; TODO
     ; write the equivalent of "simple_obj->int_x = new_int"
+    mov eax, 9
+    mov dword [sample_obj + int_x], eax
+
 
     ; TODO
     ; write the equivalent of "simple_obj->char_y = new_char"

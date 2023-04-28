@@ -14,10 +14,25 @@ main:
     ; TODO: calculate the sum of first N fibonacci numbers
     ;       (f(0) = 0, f(1) = 1)
     xor eax, eax     ;store the sum in eax
+    xor ebx, ebx
+    inc ebx
+
+    mov ecx, dword [N]
+    xor esi, esi
+    dec ecx
+    dec ecx
+
+begin_loop_ye:
+    mov edx, ebx
+    add ebx, eax
+    mov eax, edx
+    PRINTF32 `sum: %d\n\x0`, edx
+    add esi, edx
+    loop begin_loop_ye
 
     ; use loop instruction
 
-    push eax
+    push esi
     push dword [N]
     push sum_print_format
     call printf
